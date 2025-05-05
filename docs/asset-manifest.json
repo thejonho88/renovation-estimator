@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/renovation-estimator/static/css/main.0b944888.css",
+    "main.js": "/renovation-estimator/static/js/main.69411b70.js",
+    "index.html": "/renovation-estimator/index.html",
+    "main.0b944888.css.map": "/renovation-estimator/static/css/main.0b944888.css.map",
+    "main.69411b70.js.map": "/renovation-estimator/static/js/main.69411b70.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0b944888.css",
+    "static/js/main.69411b70.js"
+  ]
+}
