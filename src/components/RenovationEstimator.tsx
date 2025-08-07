@@ -135,6 +135,9 @@ export default function RenovationEstimator() {
   const [costBreakdown, setCostBreakdown] = useState<CostBreakdown | null>(null);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
 
+  // Test div to see if component is rendering
+  console.log("RenovationEstimator component is rendering");
+
   const validateForm = (): boolean => {
     const newErrors: Partial<Record<keyof FormData, string>> = {};
     
@@ -227,6 +230,10 @@ export default function RenovationEstimator() {
 
   return (
     <div className="min-h-screen bg-gray-900 py-8">
+      {/* Test element to see if component is rendering */}
+      <div style={{color: 'white', padding: '20px', textAlign: 'center'}}>
+        <h1>Renovation Estimator is Loading...</h1>
+      </div>
       <div className="max-w-4xl mx-auto px-4">
         {/* Main Content */}
         <div>
