@@ -106,3 +106,96 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## ⚠️ Disclaimer
 
 This calculator is for educational purposes only. Please verify costs with local contractors before beginning any renovation project. 
+
+## **🌐 Complete Setup Instructions for Custom Domain**
+
+### **Step 1: Configure GitHub Pages Settings**
+
+1. **Go to your repository:**
+   - Visit: https://github.com/thejonho88/renovation-estimator
+
+2. **Click "Settings" tab** (near the top, next to "Code", "Issues", etc.)
+
+3. **Click "Pages" in the left sidebar** (under "Code and automation")
+
+4. **Add your custom domain:**
+   - In the **"Custom domain"** section
+   - Enter your domain (e.g., `yourdomain.com`)
+   - Click **"Save"**
+
+5. **Enable HTTPS:**
+   - Make sure **"Enforce HTTPS"** is checked
+
+### **Step 2: Configure DNS in Squarespace**
+
+1. **Go to your Squarespace DNS settings**
+
+2. **Add 4 new A records** (click "ADD PRESET"):
+   ```
+   Record 1:
+   - HOST: @
+   - TYPE: A
+   - PRIORITY: 0
+   - TTL: 4 hrs
+   - DATA: 185.199.108.153
+
+   Record 2:
+   - HOST: @
+   - TYPE: A
+   - PRIORITY: 0
+   - TTL: 4 hrs
+   - DATA: 185.199.109.153
+
+   Record 3:
+   - HOST: @
+   - TYPE: A
+   - PRIORITY: 0
+   - TTL: 4 hrs
+   - DATA: 185.199.110.153
+
+   Record 4:
+   - HOST: @
+   - TYPE: A
+   - PRIORITY: 0
+   - TTL: 4 hrs
+   - DATA: 185.199.111.153
+   ```
+
+3. **Remove old Squarespace A records** (optional):
+   - Delete the 4 A records with IPs: `198.49.23.144`, `198.49.23.145`, `198.185.159.145`, `198.185.159.144`
+
+### **Step 3: Update Your React App**
+
+1. **Update package.json homepage** (replace `yourdomain.com` with your actual domain):
+   ```json
+   "homepage": "https://yourdomain.com"
+   ```
+
+2. **Rebuild and deploy:**
+   ```bash
+   npm run build
+   cp -r build/* docs/
+   git add docs/ package.json
+   git commit -m "Update for custom domain deployment"
+   git push origin main
+   ```
+
+### **Step 4: Wait and Test**
+
+1. **Wait for DNS propagation** (15 minutes to 48 hours, usually much faster)
+2. **Test your domain** by visiting it in a browser
+3. **Your renovation estimator should now be live** at your custom domain!
+
+## **🎯 What This Will Do:**
+
+- ✅ **Your domain** will point to the renovation estimator
+- ✅ **Old Squarespace site** will no longer be accessible at root domain
+- ✅ **Renovation estimator** will be your main site
+
+## **⚠️ Important Notes:**
+
+- **Backup your Squarespace content** if you want to keep it
+- **You can always revert** by changing the DNS back
+- **Consider keeping the www subdomain** for Squarespace if needed
+
+**Need help with any specific step?** 🚀 
